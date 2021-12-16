@@ -62,6 +62,18 @@ command = self.numMem0)
         self.add = tkinter.Button(self.rightframe,font=100, text = '+', 
 command = self.add)
         self.add.pack()
+        
+        self.sub = tkinter.Button(self.rightframe,font=100, text = '-', 
+command = self.sub)
+        self.sub.pack()
+
+        self.mult = tkinter.Button(self.rightframe,font=100, text = 'X', 
+command = self.mult)
+        self.mult.pack()
+
+        self.div = tkinter.Button(self.rightframe,font=100, text = '/', 
+command = self.div)
+        self.div.pack()
 
         self.equal = tkinter.Button(self.rightframe,font=100, text = '=', 
 command = self.equal)
@@ -123,23 +135,65 @@ self.mainwindow.destroy)
         self.mem.append('0')
         print(self.mem)
 
-    def add(self):
-        self.firstNum = ''.join(self.mem)
+
+
+    def add(self): 
+        self.firstNum = '+'.join(self.mem)
         print(self.firstNum)
         self.mem.clear()
-        
-        
+
+    def sub(self): 
+        self.firstNum = '-'.join(self.mem)
+        print(self.firstNum)
+        self.mem.clear()
+
+    def mult(self): 
+        self.firstNum = '*'.join(self.mem)
+        print(self.firstNum)
+        self.mem.clear()
+
+    def div(self): 
+        self.firstNum = '/'.join(self.mem)
+        print(self.firstNum)
+        self.mem.clear()
+
+
 
     def equal(self):
-        firstNum = int(self.firstNum)
-        secondNum = ''.join(self.mem)
-        secondNum = int(secondNum)
-        print(firstNum+secondNum)
+        if '+' in self.firstNum:
+            self.firstNum = self.firstNum.replace('+','')
+            firstNum = float(self.firstNum)
             
+            secondNum = ''.join(self.mem)
+            secondNum = float(secondNum)
+            print(firstNum+secondNum) # display this on  calc
+        
+        elif '-' in self.firstNum:
+            self.firstNum = self.firstNum.replace('-','')
+            firstNum = float(self.firstNum)
+            
+            secondNum = ''.join(self.mem)
+            secondNum = float(secondNum)
+            print(firstNum-secondNum) # display this on  calc
+        
+        elif '*' in self.firstNum:    
+            self.firstNum = self.firstNum.replace('*','')
+            firstNum = float(self.firstNum)
+            
+            secondNum = ''.join(self.mem)
+            secondNum = float(secondNum)
+            print(firstNum*secondNum) # display this on  calc
+        
+        elif '/' in self.firstNum:    
+            self.firstNum = self.firstNum.replace('/','')
+            firstNum = float(self.firstNum)
+            
+            secondNum = ''.join(self.mem)
+            secondNum = float(secondNum)
+            print(firstNum/secondNum) # display this on  calc
 
-
-
-
+        else:
+            print(self.firstNum)
 
 
 
