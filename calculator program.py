@@ -3,8 +3,8 @@ import tkinter.messagebox
 class GUITest:
     def __init__(self):
         self.mainwindow = tkinter.Tk() 
-        
-        self.mem = []
+        self.firstNum = '' # records the first number entered
+        self.mem = [] # records the button presses
        
         self.display = tkinter.Canvas(self.mainwindow,bg='#c0c0c0',height=40,width=150)
         self.display.pack()
@@ -50,67 +50,92 @@ command = self.numMem9)
         self.b7.pack(side='left')
         self.b8.pack(side='left')
         self.b9.pack(side='left')
+        
         self.botframe.pack(side='top')
 
         self.b0 = tkinter.Button(self.mainwindow,font=100, text = '0', 
 command = self.numMem0)
         self.b0.pack()
 
+
+        self.rightframe = tkinter.Frame(self.mainwindow)
+        self.add = tkinter.Button(self.rightframe,font=100, text = '+', 
+command = self.add)
+        self.add.pack()
+
+        self.equal = tkinter.Button(self.rightframe,font=100, text = '=', 
+command = self.equal)
+        self.equal.pack()
+        self.rightframe.pack(side='right')
+
+
+
+
+        
         self.quit = tkinter.Button(self.mainwindow,font=100, text = 'Quit', command = 
 self.mainwindow.destroy)
-        self.quit.pack()
+        self.quit.pack(side='left')
         
         tkinter.mainloop()
 
 
     def numMem1(self):
-        self.mem.append(1)
+        self.mem.append('1')
         print(self.mem)
 
     def numMem2(self):
-        self.mem.append(2)
+        self.mem.append('2')
         print(self.mem)
 
     def numMem3(self):
-        self.mem.append(3)
+        self.mem.append('3')
         print(self.mem)
 
     def numMem4(self):
-        self.mem.append(4)
+        self.mem.append('4')
         print(self.mem)        
     
     def numMem5(self):
-        self.mem.append(5)
+        self.mem.append('5')
         print(self.mem)
 
     def numMem6(self):
-        self.mem.append(6)
+        self.mem.append('6')
         print(self.mem)
 
 
     def numMem7(self):
-        self.mem.append(7)
+        self.mem.append('7')
         print(self.mem)
 
 
     def numMem8(self):
-        self.mem.append(8)
+        self.mem.append('8')
         print(self.mem)
 
 
     def numMem9(self):
-        self.mem.append(9)
+        self.mem.append('9')
         print(self.mem)
 
 
     def numMem0(self):
-        self.mem.append(0)
+        self.mem.append('0')
         print(self.mem)
 
+    def add(self):
+        self.firstNum = ''.join(self.mem)
+        print(self.firstNum)
+        self.mem.clear()
+        
+        
 
-
-
-
+    def equal(self):
+        firstNum = int(self.firstNum)
+        secondNum = ''.join(self.mem)
+        secondNum = int(secondNum)
+        print(firstNum+secondNum)
+            
 
 
 
