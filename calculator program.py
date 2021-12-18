@@ -5,12 +5,7 @@ class GUITest:
         self.mainwindow = tkinter.Tk() 
         self.firstNum = '' # records the first number entered
         self.mem = [] # records the button presses
-       
-        self.display = tkinter.Canvas(self.mainwindow,bg='#c0c0c0',height=40,width=150)
-        self.display.pack()
-
-        # self.display = tkinter.Canvas(self.mainwindow,bg='#000000',height=43,width=153)
-        # self.display.pack()
+        
 
         self.topframe = tkinter.Frame(self.mainwindow)
         self.b1 = tkinter.Button(self.topframe,font=100, text = '1', 
@@ -61,24 +56,24 @@ command = self.numMem0)
         self.rightframe = tkinter.Frame(self.mainwindow)
         self.add = tkinter.Button(self.rightframe,font=100, text = '+', 
 command = self.add)
-        self.add.pack()
+        self.add.pack(side='left')
         
         self.sub = tkinter.Button(self.rightframe,font=100, text = '-', 
 command = self.sub)
-        self.sub.pack()
+        self.sub.pack(side='left')
 
         self.mult = tkinter.Button(self.rightframe,font=100, text = 'X', 
 command = self.mult)
-        self.mult.pack()
+        self.mult.pack(side='left')
 
         self.div = tkinter.Button(self.rightframe,font=100, text = '/', 
 command = self.div)
-        self.div.pack()
+        self.div.pack(side='left')
 
         self.equal = tkinter.Button(self.rightframe,font=100, text = '=', 
 command = self.equal)
-        self.equal.pack()
-        self.rightframe.pack(side='right')
+        self.equal.pack(side='left')
+        self.rightframe.pack(side='bottom')
 
 
 
@@ -167,7 +162,8 @@ self.mainwindow.destroy)
             secondNum = ''.join(self.mem)
             secondNum = float(secondNum)
             print(firstNum+secondNum) # display this on  calc
-        
+            tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {firstNum+secondNum}')
+
         elif '-' in self.firstNum:
             self.firstNum = self.firstNum.replace('-','')
             firstNum = float(self.firstNum)
@@ -175,7 +171,8 @@ self.mainwindow.destroy)
             secondNum = ''.join(self.mem)
             secondNum = float(secondNum)
             print(firstNum-secondNum) # display this on  calc
-        
+            tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {firstNum-secondNum}')
+
         elif '*' in self.firstNum:    
             self.firstNum = self.firstNum.replace('*','')
             firstNum = float(self.firstNum)
@@ -183,18 +180,23 @@ self.mainwindow.destroy)
             secondNum = ''.join(self.mem)
             secondNum = float(secondNum)
             print(firstNum*secondNum) # display this on  calc
-        
+            tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {firstNum*secondNum}')
+
         elif '/' in self.firstNum:    
             self.firstNum = self.firstNum.replace('/','')
             firstNum = float(self.firstNum)
-            
+
             secondNum = ''.join(self.mem)
             secondNum = float(secondNum)
             print(firstNum/secondNum) # display this on  calc
+            tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {firstNum/secondNum}')
 
         else:
-            print(self.firstNum)
-
+            i = float(''.join(self.mem))
+            print(float(''.join(self.mem)))
+            tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {i}')
+        self.firstNum=''
+        secondNum=''    
 
 
 def main():
