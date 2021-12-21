@@ -206,5 +206,3 @@ self.mainwindow.destroy)
 
 def main():
     mygui = GUITest()
-
-
