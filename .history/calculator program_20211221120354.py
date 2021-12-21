@@ -136,24 +136,20 @@ self.mainwindow.destroy)
         self.firstNum = ''.join(self.mem) 
         print(self.firstNum)
         self.mem.clear()
-        self.operation = '+'
 
     def sub(self): 
         self.firstNum = ''.join(self.mem)
         # print(self.firstNum)
         self.mem.clear()
-        self.operation = '-'
 
     def mult(self): 
         self.firstNum = ''.join(self.mem)
         # print(self.firstNum)
         self.mem.clear()
-        self.operation = '*'
 
     def div(self): 
         self.firstNum = ''.join(self.mem)
         # print(self.firstNum)
-        self.operation = '/'
         self.mem.clear()
 
 
@@ -199,9 +195,8 @@ self.mainwindow.destroy)
             i = float(''.join(self.mem))
 
             tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {i}')
-        self.operation = ''
-        self.firstNum = ''
-        secondNum = ''
+        
+
 
 def main():
     mygui = GUITest()

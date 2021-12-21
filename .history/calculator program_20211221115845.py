@@ -5,7 +5,7 @@ class GUITest:
         self.mainwindow = tkinter.Tk() 
         self.firstNum = '' # records the first number entered
         self.mem = [] # records the button presses
-        self.operation = ''
+        
 
         self.topframe = tkinter.Frame(self.mainwindow)
         self.b1 = tkinter.Button(self.topframe,font=100, text = '1', 
@@ -131,35 +131,31 @@ self.mainwindow.destroy)
         # print(self.mem)
 
 
-    # TODO: fix the single digit calculation bug
+
     def add(self): 
-        self.firstNum = ''.join(self.mem) 
+        self.firstNum = '+'.join(self.mem)
         print(self.firstNum)
         self.mem.clear()
-        self.operation = '+'
 
     def sub(self): 
-        self.firstNum = ''.join(self.mem)
+        self.firstNum = '-'.join(self.mem)
         # print(self.firstNum)
         self.mem.clear()
-        self.operation = '-'
 
     def mult(self): 
-        self.firstNum = ''.join(self.mem)
+        self.firstNum = '*'.join(self.mem)
         # print(self.firstNum)
         self.mem.clear()
-        self.operation = '*'
 
     def div(self): 
-        self.firstNum = ''.join(self.mem)
+        self.firstNum = '/'.join(self.mem)
         # print(self.firstNum)
-        self.operation = '/'
         self.mem.clear()
 
 
 
     def equal(self):
-        if '+' in self.operation:
+        if '+' in self.firstNum:
             self.firstNum = self.firstNum.replace('+','')
             self.firstNum = float(self.firstNum)
             
@@ -168,7 +164,7 @@ self.mainwindow.destroy)
             
             tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {self.firstNum+secondNum}')
 
-        elif '-' in self.operation:
+        elif '-' in self.firstNum:
             self.firstNum = self.firstNum.replace('-','')
             self.firstNum = float(self.firstNum)
             
@@ -177,7 +173,7 @@ self.mainwindow.destroy)
             
             tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {self.firstNum-secondNum}')
 
-        elif '*' in self.operation:    
+        elif '*' in self.firstNum:    
             self.firstNum = self.firstNum.replace('*','')
             self.firstNum = float(self.firstNum)
             
@@ -186,7 +182,7 @@ self.mainwindow.destroy)
             
             tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {self.firstNum*secondNum}')
 
-        elif '/' in self.operation:    
+        elif '/' in self.firstNum:    
             self.firstNum = self.firstNum.replace('/','')
             self.firstNum = float(self.firstNum)
 
@@ -199,9 +195,8 @@ self.mainwindow.destroy)
             i = float(''.join(self.mem))
 
             tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {i}')
-        self.operation = ''
-        self.firstNum = ''
-        secondNum = ''
+        
+
 
 def main():
     mygui = GUITest()

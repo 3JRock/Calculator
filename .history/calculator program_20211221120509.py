@@ -200,8 +200,7 @@ self.mainwindow.destroy)
 
             tkinter.messagebox.showinfo(title='answer',message=f'The Answer is: {i}')
         self.operation = ''
-        self.firstNum = ''
-        secondNum = ''
+
 
 def main():
     mygui = GUITest()
